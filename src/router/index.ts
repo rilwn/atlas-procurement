@@ -8,13 +8,13 @@ const whiteList = ['Login', 'Register'];
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    PrivateRecursiveRoutes,
+    PrivateRoutes,
+    PublicRoutes,
     {
       path: '/:pathMatch(.*)*',
       component: () => import('@/views/Pages/NotFound.vue'),
     },
-    PrivateRecursiveRoutes,
-    PrivateRoutes,
-    PublicRoutes,
   ],
 });
 

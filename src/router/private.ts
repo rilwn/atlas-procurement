@@ -7,11 +7,10 @@ import ProductRequestRoutes from './modules/product-request';
 
 const PrivateRoutes = {
   path: '/',
-  name: 'Home',
+  redirect: '/dashboard',
   meta: {
     requiresAuth: true,
   },
-  // redirect: '/dashboard',
   component: () => import('@/layouts/DefaultLayout.vue'),
   children: [
     DashboardRoutes,
