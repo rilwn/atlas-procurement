@@ -27,7 +27,8 @@
       <img
         src="@/assets/logo/logo.svg"
         alt="Atlas Logo"
-        class="h-8 w-auto object-contain"
+        class="h-8 w-auto object-contain cursor-pointer"
+        @click="Home"
       />
 
       <div class="relative">
@@ -157,6 +158,13 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useProcurementStore } from '@/stores/procurementStore';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const Home = () => {
+  router.push({ name: 'Dashboard' });
+};
 
 const store = useProcurementStore();
 
