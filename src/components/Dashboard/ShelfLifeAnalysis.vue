@@ -13,7 +13,7 @@
     <div
       class="flex overflow-hidden gap-2.5 justify-center items-center px-6 py-6 mt-5 max-w-full min-h-[240px] w-[394px] max-md:px-5"
     >
-      <div class="flex self-stretch my-auto min-h-[196px] w-[195px]"></div>
+      <PieChart :data="chartData" :options="chartOptions" />
     </div>
     <div class="flex gap-3 items-start mt-5 text-xs font-medium text-slate-500">
       <div class="gap-2 self-stretch">Less than 18 Months</div>
@@ -24,8 +24,31 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import PieChart from './PieChart.vue';
 
 export default defineComponent({
   name: 'ShelfLifeAnalysis',
+  components: {
+    PieChart,
+  },
+  data() {
+    return {
+      chartData: {
+        labels: ['Less than 18 Months', 'More than 18 Months'],
+        datasets: [
+          {
+            label: 'Shelf Life Analysis',
+            data: [30, 70],
+            backgroundColor: ['#A3F94E', '#0000EE'],
+            hoverBackgroundColor: ['#A3F94E', '#0000EE'],
+          },
+        ],
+      },
+      chartOptions: {
+        responsive: true,
+        maintainAspectRatio: false,
+      },
+    };
+  },
 });
 </script>

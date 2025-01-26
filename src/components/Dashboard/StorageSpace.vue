@@ -13,7 +13,7 @@
     <div
       class="flex overflow-hidden gap-2.5 justify-center items-center px-6 py-5 mt-5 max-w-full min-h-[240px] w-[394px] max-md:px-5"
     >
-      <div></div>
+      <DoughnutChart :data="chartData" :options="chartOptions" />
     </div>
     <div class="flex gap-3 items-start mt-5 text-xs font-medium text-slate-500">
       <div class="gap-2 self-stretch">Used Space</div>
@@ -24,8 +24,41 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import DoughnutChart from './DoughnutChart.vue';
 
 export default defineComponent({
   name: 'StorageSpace',
+  components: {
+    DoughnutChart,
+  },
+  data() {
+    return {
+      chartData: {
+        labels: ['Used Space', 'Free Space'],
+        datasets: [
+          {
+            label: 'Storage Space',
+            data: [70, 30],
+            backgroundColor: ['#36A2EB', '#d7ecfa'],
+            hoverBackgroundColor: ['#36A2EB', '#d7ecfa'],
+            borderWidth: 0,
+          },
+        ],
+      },
+      chartOptions: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '70%',
+        plugins: {
+          legend: {
+            display: false,
+          },
+          tooltip: {
+            enabled: true,
+          },
+        },
+      },
+    };
+  },
 });
 </script>
