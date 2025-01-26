@@ -7,6 +7,7 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
 import { Chart, registerables } from 'chart.js';
+import type { ChartData, ChartOptions } from 'chart.js';
 
 Chart.register(...registerables);
 
@@ -14,11 +15,11 @@ export default defineComponent({
   name: 'DoughnutChart',
   props: {
     data: {
-      type: Object,
+      type: Object as () => ChartData<'doughnut', number[], string>,
       required: true,
     },
     options: {
-      type: Object,
+      type: Object as () => ChartOptions<'doughnut'>,
       default: () => ({}),
     },
   },

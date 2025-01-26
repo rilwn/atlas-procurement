@@ -41,7 +41,6 @@ export default defineComponent({
             data: [70, 30],
             backgroundColor: ['#36A2EB', '#d7ecfa'],
             hoverBackgroundColor: ['#36A2EB', '#d7ecfa'],
-            borderWidth: 0,
           },
         ],
       },
