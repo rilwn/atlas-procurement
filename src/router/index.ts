@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import PrivateRecursiveRoutes from './private/recursive';
 import PrivateRoutes from './private';
 import PublicRoutes from './public';
@@ -6,7 +6,7 @@ import PublicRoutes from './public';
 const whiteList = ['Login', 'Register'];
 
 export const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     PrivateRecursiveRoutes,
     PrivateRoutes,
