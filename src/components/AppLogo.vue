@@ -4,7 +4,7 @@ import Logo from '@/assets/logo/logo.svg';
 
 <template>
   <div style="line-height: 0" class="logo">
-    <img :src="Logo" :height="height" alt="logo" />
+    <img :src="Logo" alt="logo" />
   </div>
 </template>
 
